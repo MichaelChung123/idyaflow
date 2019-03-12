@@ -34,12 +34,9 @@ app.get('/getTweets', (req, res) => {
         result_type: 'recent',
         lang: 'en'
     }
-
-    console.log(req.query.ID);
-
+    
     T.get('search/tweets', params, function (err, data, response) {
         if (!err) {
-            // console.log(data.statuses);
             res.send(data.statuses);
         } else {
             res.send(err);
